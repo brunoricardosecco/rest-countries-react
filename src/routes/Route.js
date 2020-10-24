@@ -1,13 +1,17 @@
 import React from 'react';
 import { Route as ReactDOMRoute, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function Route({ isPrivate = false, component: Component, ...rest }) {
-  const isAuthenticated = false;
+  // reducer
+  const { isLogged } = useSelector(state => state.auth);
+  console.log(isLogged);
+
   return (
     <ReactDOMRoute
       {...rest}
       render={({ location }) => {
-        return isPrivate === isAuthenticated ? (
+        return isPrivate === isLogged ? (
           <Component />
         ) : (
           <Redirect

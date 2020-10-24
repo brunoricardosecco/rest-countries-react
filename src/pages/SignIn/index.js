@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 import { FiLogIn } from 'react-icons/fi';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+
+import { login } from '../../store/auth/reducer';
 
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import { Container, FormContainer, Title } from './styles';
 
 function SignIn() {
+  // history
+  const history = useHistory();
+  // actions
+  const dispatch = useDispatch();
+  const loginAsync = useCallback(values => dispatch(login(values)), [dispatch]);
+
   // functions
   const { register, handleSubmit, errors } = useForm({
     mode: 'onSubmit',
@@ -15,7 +24,7 @@ function SignIn() {
   });
 
   const onSubmit = data => {
-    console.log(data);
+    loginAsync({ ...data, history });
   };
 
   return (
