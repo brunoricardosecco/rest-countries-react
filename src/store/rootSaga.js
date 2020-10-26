@@ -6,6 +6,7 @@ import * as auth from './auth/saga';
 
 function* watchAsyncAuth() {
   yield takeLatest(authTypes.ASYNC_LOGIN, auth.login);
+  yield takeLatest(authTypes.ASYNC_SIGNUP, auth.signUp);
 }
 
 export default function* rootSaga() {
