@@ -1,13 +1,34 @@
 import { put } from 'redux-saga/effects';
 
 import { Types as authTypes } from './reducer';
+import { Types as userTypes } from '../user/reducer';
+
+import * as AuthServices from '../../services/requests/Auth';
 
 export function* login({ payload }) {
   try {
+    const { email, password } = payload;
+
+    const response = yield AuthServices.SignIn({
+      email,
+      password,
+    });
+
+    const { user, token } = response.data;
+
     yield put({
       type: authTypes.ASYNC_LOGIN_SUCCESS,
       payload: {
-        token: 'token',
+        token,
+      },
+    });
+
+    yield put({
+      type: userTypes.ASYNC_GET_USER_SUCCESS,
+      payload: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
       },
     });
 
