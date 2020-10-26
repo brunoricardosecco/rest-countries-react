@@ -1,9 +1,14 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import Navbar from '../../components/Navbar';
+import { Container } from './styles';
 
 function Dashboard() {
-  return <h1>asd</h1>;
+  return (
+    <Container>
+      <Navbar />
+    </Container>
+  );
 }
 
 export default Dashboard;
