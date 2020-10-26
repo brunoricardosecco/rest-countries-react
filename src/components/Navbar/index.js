@@ -30,7 +30,7 @@ function Navbar() {
           Cadastro região
         </NavbarItem>
         <NavbarItem
-          onClick={() => history.push(`${location.pathname}/signup-countries`)}
+          onClick={() => history.push(`${location.pathname}/signup-country`)}
         >
           Cadastro de país
         </NavbarItem>
