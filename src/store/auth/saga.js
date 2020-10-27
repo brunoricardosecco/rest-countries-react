@@ -16,6 +16,8 @@ export function* login({ payload }) {
 
     const { user, token } = response.data;
 
+    localStorage.setItem('@RestCountries/token', token);
+
     yield put({
       type: authTypes.ASYNC_LOGIN_SUCCESS,
       payload: {

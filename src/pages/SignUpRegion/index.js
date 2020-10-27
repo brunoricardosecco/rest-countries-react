@@ -1,9 +1,8 @@
 import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
 
-import { signUp } from '../../store/auth/reducer';
+import { addRegion } from '../../store/region/reducer';
 
 import Navbar from '../../components/Navbar';
 import Button from '../../components/Button';
@@ -11,22 +10,24 @@ import Input from '../../components/Input';
 import { Container, FormContainer } from './styles';
 
 function SignUpRegion() {
-  // history
-  const history = useHistory();
   // actions
   const dispatch = useDispatch();
-  const signUpAsync = useCallback(values => dispatch(signUp(values)), [
+  const addRegionAsync = useCallback(values => dispatch(addRegion(values)), [
     dispatch,
   ]);
 
   // functions
-  const { register, handleSubmit, errors } = useForm({
+  const { register, handleSubmit, errors, setValue } = useForm({
     mode: 'onSubmit',
     reValidateMode: 'onChange',
   });
 
+  const clearFields = () => {
+    setValue('name', '');
+  };
+
   const onSubmit = data => {
-    signUpAsync({ ...data, history });
+    addRegionAsync({ ...data, clearFields });
   };
 
   return (
