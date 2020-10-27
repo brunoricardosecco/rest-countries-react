@@ -19,7 +19,7 @@ export function* addCountry({ payload }) {
 
     yield put({
       type: countryTypes.ASYNC_ADD_COUNTRY_SUCCESS,
-      paylaod: {
+      payload: {
         country,
       },
     });

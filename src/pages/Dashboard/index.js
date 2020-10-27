@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllCountries } from '../../store/country/reducer';
 
 import Navbar from '../../components/Navbar';
-import { Container } from './styles';
+import { Container, ContentContainer } from './styles';
+import CountryItem from '../../components/CountryItem';
 
 function Dashboard() {
   // reducer
@@ -24,6 +25,11 @@ function Dashboard() {
   return (
     <Container>
       <Navbar />
+      <ContentContainer>
+        {countries.map(country => (
+          <CountryItem country={country} />
+        ))}
+      </ContentContainer>
     </Container>
   );
 }

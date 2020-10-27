@@ -1,12 +1,11 @@
 import styled, { css } from 'styled-components';
-import { shade } from 'polished';
 
 import { colors, metrics } from '../../constants';
 
 export const Container = styled.div`
   display: flex;
   width: 100%;
-  background-color: ${shade(0.2, colors.primaryDark)};
+  background-color: #2e3944;
   justify-content: center;
 `;
 
