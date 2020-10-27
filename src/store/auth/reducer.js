@@ -4,6 +4,8 @@ export const Types = {
 
   ASYNC_SIGNUP: 'auth/ASYNC_SIGNUP',
   ASYNC_SIGNUP_SUCCESS: 'auth/ASYNC_SIGNUP_SUCCESS',
+
+  ASYNC_SIGN_OUT: 'auth/ASYNC_SIGN_OUT',
 };
 
 const initialState = {
@@ -40,6 +42,12 @@ export default function reducer(state = initialState, action) {
         loading: false,
       };
 
+    case Types.ASYNC_SING_OUT:
+      return {
+        token: null,
+        isLogged: false,
+      };
+
     default:
       return state;
   }
@@ -60,6 +68,13 @@ export const signUp = ({ name, email, password, history }) => ({
     name,
     email,
     password,
+    history,
+  },
+});
+
+export const logout = history => ({
+  type: Types.ASYNC_SIGN_OUT,
+  payload: {
     history,
   },
 });

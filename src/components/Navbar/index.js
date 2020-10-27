@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
+
+import { logout } from '../../store/auth/reducer';
 
 import { Container, ItemContainer, ContentContainer } from './styles';
 
@@ -16,6 +19,10 @@ function Navbar() {
   const history = useHistory();
   const location = useLocation();
 
+  // actions
+  const dispatch = useDispatch();
+  const logoutAsync = useCallback(value => dispatch(logout(value)), [dispatch]);
+
   return (
     <Container>
       <ContentContainer>
@@ -30,7 +37,7 @@ function Navbar() {
         <NavbarItem onClick={() => history.push(`/dashboard/signup-country`)}>
           Cadastro de país
         </NavbarItem>
-        <NavbarItem onClick={() => console.log('sair')} lastItem>
+        <NavbarItem onClick={() => logoutAsync(history)} lastItem>
           Sair
         </NavbarItem>
       </ContentContainer>

@@ -10,7 +10,6 @@ import CountryItem from '../../components/CountryItem';
 function Dashboard() {
   // reducer
   const { countries } = useSelector(state => state.country);
-  console.log(countries);
 
   // actions
   const dispatch = useDispatch();

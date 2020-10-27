@@ -59,3 +59,14 @@ export function* signUp({ payload }) {
     console.log(error);
   }
 }
+
+export function signOut() {
+  try {
+    localStorage.removeItem('@RestCountries/token');
+    localStorage.removeItem('persist:@RestCountries/app');
+    // eslint-disable-next-line no-restricted-globals
+    location.reload();
+  } catch (error) {
+    console.log(error);
+  }
+}

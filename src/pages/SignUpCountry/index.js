@@ -16,7 +16,6 @@ import { Container, FormContainer } from './styles';
 function SignUpCountry() {
   // reducers
   const { regions } = useSelector(state => state.region);
-  console.log(regions);
 
   // actions
   const dispatch = useDispatch();

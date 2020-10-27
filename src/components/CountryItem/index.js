@@ -11,11 +11,7 @@ function CountryItem({ country }) {
       <TextContainer>
         <h1>{country.name}</h1>
         <div>
-          <h4>Population:</h4>
-          <p>{country.population}</p>
-        </div>
-        <div>
-          <h4>Population:</h4>
+          <h4>População:</h4>
           <p>{country.population}</p>
         </div>
         <div>

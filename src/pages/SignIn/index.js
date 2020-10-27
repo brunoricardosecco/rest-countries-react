@@ -13,6 +13,7 @@ import { Container, FormContainer, Title } from './styles';
 function SignIn() {
   // history
   const history = useHistory();
+
   // actions
   const dispatch = useDispatch();
   const loginAsync = useCallback(values => dispatch(login(values)), [dispatch]);

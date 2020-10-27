@@ -11,6 +11,7 @@ import * as country from './country/saga';
 function* watchAsyncAuth() {
   yield takeLatest(authTypes.ASYNC_LOGIN, auth.login);
   yield takeLatest(authTypes.ASYNC_SIGNUP, auth.signUp);
+  yield takeLatest(authTypes.ASYNC_SIGN_OUT, auth.signOut);
 }
 
 function* watchAsyncRegion() {

@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 function Route({ isPrivate = false, component: Component, ...rest }) {
   // reducer
   const { isLogged } = useSelector(state => state.auth);
-  console.log(isLogged);
 
   return (
     <ReactDOMRoute
