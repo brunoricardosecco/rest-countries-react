@@ -1,6 +1,9 @@
 export const Types = {
   ASYNC_ADD_COUNTRY: 'country/ASYNC_ADD_COUNTRY',
   ASYNC_ADD_COUNTRY_SUCCESS: 'country/ASYNC_ADD_COUNTRY_SUCCESS',
+
+  ASYNC_GET_COUNTRIES: 'country/ASYNC_GET_COUNTRIES',
+  ASYNC_GET_COUNTRIES_SUCCESS: 'country/ASYNC_GET_COUNTRIES_SUCCESS',
 };
 
 const INIT_STATE = {
@@ -20,6 +23,19 @@ export default function reducer(state = INIT_STATE, action) {
       return {
         ...state,
         countries: [...state.countries, action.payload?.country],
+        loading: false,
+      };
+
+    case Types.ASYNC_GET_COUNTRIES:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case Types.ASYNC_GET_COUNTRIES_SUCCESS:
+      return {
+        ...state,
+        countries: action.payload.countries,
         loading: false,
       };
 
@@ -43,4 +59,8 @@ export const addCountry = ({
     regionId,
     clearFields,
   },
+});
+
+export const getAllCountries = () => ({
+  type: Types.ASYNC_GET_COUNTRIES,
 });

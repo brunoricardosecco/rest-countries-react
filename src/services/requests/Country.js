@@ -7,3 +7,10 @@ export const addCountry = data => {
     data,
   });
 };
+
+export const findAll = () => {
+  return api.request({
+    method: 'GET',
+    url: '/country',
+  });
+};

@@ -29,3 +29,20 @@ export function* addCountry({ payload }) {
     console.log(error);
   }
 }
+
+export function* getAll() {
+  try {
+    const response = yield CountryServices.findAll();
+
+    const { countries } = response.data;
+
+    yield put({
+      type: countryTypes.ASYNC_GET_COUNTRIES_SUCCESS,
+      payload: {
+        countries,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}

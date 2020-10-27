@@ -20,6 +20,7 @@ function* watchAsyncRegion() {
 
 function* watchAsyncCountry() {
   yield takeLatest(countryTypes.ASYNC_ADD_COUNTRY, country.addCountry);
+  yield takeLatest(countryTypes.ASYNC_GET_COUNTRIES, country.getAll);
 }
 
 export default function* rootSaga() {
