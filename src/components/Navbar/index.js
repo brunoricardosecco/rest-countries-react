@@ -24,14 +24,10 @@ function Navbar() {
             Dashboard
           </NavbarItem>
         )}
-        <NavbarItem
-          onClick={() => history.push(`${location.pathname}/signup-region`)}
-        >
+        <NavbarItem onClick={() => history.push(`/dashboard/signup-region`)}>
           Cadastro região
         </NavbarItem>
-        <NavbarItem
-          onClick={() => history.push(`${location.pathname}/signup-country`)}
-        >
+        <NavbarItem onClick={() => history.push(`/dashboard/signup-country`)}>
           Cadastro de país
         </NavbarItem>
         <NavbarItem onClick={() => console.log('sair')} lastItem>
